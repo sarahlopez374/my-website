@@ -1,0 +1,22 @@
+<script>
+    const products = {
+        1: { name: "Product 1", description: "Short description of product 1" },
+        2: { name: "Product 2", description: "Short description of product 2" },
+        // Add more products here
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    const product = products[id];
+
+    if (product) {
+        document.getElementById("product-title").textContent = product.name;
+        document.getElementById("product-description").textContent = product.description;
+    } else {
+        document.body.innerHTML = "<h1>Product not found</h1>";
+    }
+</script>
+
+<h1 id="product-title"></h1>
+<p id="product-description"></p>
